@@ -11,9 +11,6 @@ const embed_gist = (function() {
 
         const div = document.getElementById(eid);
 
-        const spin = createSpinner();
-        div.appendChild(spin);
-
         const key = `${gid}_${file}`;
         const prom = cache.get(key) || (function() {
             const ret = new Promise(resolve => {
@@ -47,7 +44,6 @@ const embed_gist = (function() {
                 }
             }
 
-            spin.remove();
             div.appendChild(css);
             div.appendChild(gist);
         });
